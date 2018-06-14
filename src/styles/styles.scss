@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import '~ngx-toastr/toastr';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+#toast-container.toast-bottom-full-width>div,
+#toast-container.toast-top-full-width>div {
+  width: 100% !important;
+}
+
+#toast-container>div {
+  padding: 5px 5px 5px 50px;
+  margin: 0;
+}
+
+.toast .toast-close-button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.toast {
+  opacity: 0.9 !important;
+}
+
+#toast-container>.toast-warning {
+  background-size: 30px;
+}

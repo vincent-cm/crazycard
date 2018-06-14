@@ -1,0 +1,26 @@
+<mat-card class="m-4">
+  <mat-card-header class="my-2">
+
+
+    <mat-card-title>{{"GENERAL.TOTALCREDIT" | translate}}: £{{totalCredit}}</mat-card-title>
+    <mat-card-title>{{"GENERAL.TOTALCREDITSELECTED" | translate}}: £{{totalCreditSelected}}</mat-card-title>
+
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content class="my-2">
+    <ng-template #alertCardResult></ng-template>
+
+    <div class="py-4" *blockUI="'card_list'">
+      <ngx-datatable #table class='material' [columns]="cardColumns" [rows]='cardList' [columnMode]="'force'" [headerHeight]="50"
+        [footerHeight]="50" [rowHeight]="400" [scrollbarH]="true" [trackByProp]="'updated'" [selected]="selectedCardList" [selectionType]="'checkbox'"
+        (select)='onCardsSelected($event)' [limit]="10" [messages]="tableMessage" [selectionType]="'checkbox'" (activate)="onRowClick($event)">
+      </ngx-datatable>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <a color="accent" class="float-right mx-1" mat-button (click)="onShowUserPopup()">{{"CARD.SEARCH" | translate}}</a>
+    <a color="white" class="float-right mx-1" mat-button (click)="onClear()">{{"BUTTON.CLEAR" | translate}}</a>
+    <button mat-button (click)="openGitHub()">
+      <i class="material-icons">face</i>@vincent-cm</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>{{"USER.SEARCHING.INDEX" | translate}}
+</h1>
+<div mat-dialog-content>
+  <div class="portlet" [class.portlet-border-bold]="isInEdit" *blockUI="'user-search'">
+    <form class="form for-fit for-label-align-right" [formGroup]="userFormGroup">
+      <ng-template #alertUserInput></ng-template>
+      <div *ngFor="let i of rows; let idx=index;" class="form-group row">
+        <!-- Loop through the user attributes to keep it as scalable as possible -->
+        <div class="col-lg-6" *ngFor="let attr of userAttrList | slice:(i*itemsPerRow):(i+1)*itemsPerRow">
+
+          <mat-form-field appearance="outline" *ngIf="attr !== 'dob' && attr !== 'employment'">
+            <mat-label>{{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-label>
+            <input matInput placeholder="{{'Enter' + ' ' + ('USER.SEARCHING.' + attr?.toUpperCase() | translate)}}" formControlName="{{attr}}"
+              class="form-control input">
+            <mat-hint>Input your {{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" *ngIf="attr === 'dob'">
+            <mat-label>{{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-label>
+            <input matInput [matDatepicker]="myDobpicker" [max]="maxDate" placeholder="{{'Choose' + ' ' + ('USER.SEARCHING.' + attr?.toUpperCase() | translate)}}"
+              formControlName="{{attr}}" class="form-control input">
+            <mat-datepicker-toggle [for]="myDobpicker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #myDobpicker startView="year" [startAt]="startDate"></mat-datepicker>
+            <mat-hint>Choose your {{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" *ngIf="attr === 'employment'">
+            <mat-label>{{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-label>
+            <mat-select formControlName="{{attr}}" class="form-control" placeholder="{{'Choose' + ' ' + ('USER.SEARCHING.' + attr?.toUpperCase() | translate)}}">
+              <mat-option *ngFor="let type of JSObject.keys(User_Enum.EmploymentStatusEnum)" [value]="type">
+                {{ "USER.SEARCHING.EMPLOYMENTSTATUS." + type?.toUpperCase() | translate }}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Choose your {{"USER.SEARCHING." + attr?.toUpperCase() | translate}}</mat-hint>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button [disabled]="userFormGroup.pristine || isLoading" (click)="onRevert()" mat-button>{{"BUTTON.REVERT" | translate}}</button>
+  <button color="warn" [disabled]="userFormGroup.pristine || userFormGroup.status == 'INVALID' || isLoading" (click)="onSearch()"
+    mat-button>{{"BUTTON.SEARCH" | translate}}</button>
+  <span>or
+    <a color="accent" mat-button (click)="onDismiss()">{{"BUTTON.DISMISS" | translate}}</a>
+  </span>
+</div>

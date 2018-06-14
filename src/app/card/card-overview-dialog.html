@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data?.name}}</h1>
+<div mat-dialog-content>
+  <mat-list>
+    <mat-list-item>{{"CARD.APR" | translate}}: {{data?.apr}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>{{"CARD.BALANCETRANSFEROFFERDUATION" | translate}}: {{data?.balancetransferofferduation}} month(s)</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>{{"CARD.PURCHASEOFFERDURATION" | translate}}: {{data?.purchaseofferduration}} month(s)</mat-list-item>
+    <mat-list-item>{{"CARD.CREDIT" | translate}}: £{{data?.credit}}</mat-list-item>
+  </mat-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="onNoClick()" cdkFocusInitial>Ok</button>
+</div>

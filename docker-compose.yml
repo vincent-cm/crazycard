@@ -1,0 +1,14 @@
+version: '0'
+services:
+  crazycard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crazycard
+    networks:
+      - crazycard
+    ports:
+      - '8080:80'
+networks:
+  crazycard:
+    driver: bridge

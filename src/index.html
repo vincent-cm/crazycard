@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" appunwraptag="">
+<!-- begin::Head -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <meta name="description" content="<%= htmlWebpackPlugin.options.metadata.description %>">
+  <!-- base url -->
+  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <% if (webpackConfig.htmlElements.headTags) { %>
+    <!-- Configured Head Tags  -->
+    <%= webpackConfig.htmlElements.headTags %>
+      <% } %>
+
+        <%= htmlWebpackPlugin.files.webpackManifest %>
+
+          <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+            <!-- Webpack Dev Server reload -->
+            <script src="/webpack-dev-server.js"></script>
+            <% } %>
+              <!--begin::Web font -->
+              <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+              <script>
+                WebFont.load({
+                  google: {
+                    "families": ["Montserrat:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+                  },
+                  active: function () {
+                    sessionStorage.fonts = true;
+                  }
+                });
+
+              </script>
+              <!--end::Web font -->
+              <!--begin::Base Styles -->
+              <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+              <script>
+
+
+              </script>
+
+              <!-- Async Google Tag Manager: change gtmKey value inside config.prod.conf to your to be your site's ID-->
+              <% if (htmlWebpackPlugin.options.gtmKey) { %>
+                <!-- Google Tag Manager -->
+                <script>
+                  (function (w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                      'gtm.start': new Date().getTime(),
+                      event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                      j = d.createElement(s),
+                      dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src =
+                      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                  })(window, document, 'script', 'dataLayer', '<%= htmlWebpackPlugin.options.gtmKey %>');
+
+                </script>
+                <!-- End Google Tag Manager -->
+                <% } %>
+                  <!-- End Google Analytics -->
+
+                  <!-- CSS will be injected by webpack here -->
+                  <!-- Preload link tags will be injected by webpack here -->
+</head>
+<!-- end::Head -->
+<!-- start::Body -->
+
+<body class="">
+
+  <% if (htmlWebpackPlugin.options.gtmKey) { %>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=<%= htmlWebpackPlugin.options.gtmKey %>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <% } %>
+</body>
+<!-- end::Body -->
+
+</html>

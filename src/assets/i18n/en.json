@@ -1,0 +1,62 @@
+{
+  "LANGUAGE": {
+    "EN-GB": "British English",
+    "EN": "English"
+  },
+  "DATATABLE": {
+    "emptyMessage": "No data to display",
+    "totalMessage": "total"
+  },
+  "USER": {
+    "SEARCHING": {
+      "INDEX": "Provide your personal detail to get Credit Card",
+      "DETAIL": "Detail",
+      "TITLE": "Title (Mr/Ms)",
+      "FIRSTNAME": "First Name",
+      "LASTNAME": "Last Name",
+      "DOB": "Date of Birth",
+      "INCOME": "Annual Income (GBP)",
+      "EMPLOYMENT": "Employment Status",
+      "HOUSENUMBER": "House Number",
+      "POSTCODE": "Postcode",
+      "EMPLOYMENTSTATUS": {
+        "NA": "None of Above",
+        "FULL": "Full Time Employment",
+        "STU": "Student",
+        "PART": "Part Time Employed"
+      }
+    }
+  },
+  "CARD": {
+    "SEARCH": "Get A Quick & Easy Quote Now‎",
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "APR": "APR",
+    "BALANCETRANSFEROFFERDUATION": "Balance Transfer Offer Duration",
+    "PURCHASEOFFERDURATION": "Purchase Offer Duration",
+    "CREDIT": "Credit Available",
+    "Total": "Total"
+  },
+  "BUTTON": {
+    "BACK": "Back",
+    "EDIT": "Edit",
+    "DISMISS": "Dismiss",
+    "CONFIRM": "Confirm",
+    "DELETE": "Delete",
+    "REMOVE": "Remove",
+    "SAVE": "Save",
+    "REVERT": "Revert",
+    "CLEAR": "Clear",
+    "SUBMIT": "Submit",
+    "SEARCH": "Search"
+  },
+  "GENERAL": {
+    "INFORMATION": "Information",
+    "WORD_SEPARATOR": " ",
+    "TOTALCREDIT": "Total Credit You Can Get",
+    "TOTALCREDITSELECTED": "Total Credit You Selected"
+  },
+  "TEST": {
+    "TEST": "Test"
+  }
+}

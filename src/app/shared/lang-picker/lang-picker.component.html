@@ -1,0 +1,6 @@
+<!--<mat-form-field>-->
+<mat-select class="lang-picker-select" (valueChange)="onLanguageChange($event)" aria-disabled="true" [(value)]="translate.currentLang">
+  <mat-option *ngFor="let lang of languagesKeys" value="{{languages[lang]?.value}}">
+    {{ languages[lang].viewValue | translate }}
+  </mat-option>
+</mat-select>
