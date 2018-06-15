@@ -42,7 +42,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { logger } from 'codelyzer/util/logger';
 import { MomentModule } from 'ngx-moment';
 import { Notice } from './utility/notification';
-import { BlockUIModule } from 'ng-block-ui';
+// import { BlockUIModule } from 'ng-block-ui';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import '../styles/styles.scss';
 
@@ -57,7 +57,7 @@ const APP_PROVIDERS = [
   AppState,
   Notice,
   AppReadyEvent,
-  { provide: APP_BASE_HREF, useValue: '/' },
+  // { provide: APP_BASE_HREF, useValue: '/' },
   {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpErrorInterceptor,
@@ -104,7 +104,7 @@ export function createTranslateLoader(http: HttpClient) {
       preventDuplicates: true,
       maxOpened: 1
     }),
-    BlockUIModule.forRoot(),
+    // BlockUIModule.forRoot(),
     FlexLayoutModule
 
     /**

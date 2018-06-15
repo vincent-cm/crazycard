@@ -8,7 +8,7 @@ const APP_COMMON_CONFIG = require('./config.common.json');
 const DEFAULT_METADATA = {
   title: APP_COMMON_CONFIG.title,
   description: APP_COMMON_CONFIG.description,
-  baseUrl: '/',
+  baseUrl: '/crazycard',
   isDevServer: helpers.isWebpackDevServer(),
   HMR: helpers.hasProcessFlag('hot'),
   AOT: process.env.BUILD_AOT || helpers.hasNpmFlag('aot'),

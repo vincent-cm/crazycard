@@ -18,7 +18,7 @@ import { User, User_Enum } from '../_models/user';
 import { Card } from '../_models/card';
 import { of, empty } from 'rxjs';
 import { delay, catchError } from 'rxjs/operators';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+// import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import {
   FormBuilder,
   FormControl,
@@ -32,8 +32,6 @@ import { KeysPipe } from 'app/utility/keys.pipe';
 import { UserSearchFormGroup } from './user-search-form-group';
 import { ResourceId } from 'app/shared/i18n/resource-id';
 import { TranslateService } from '@ngx-translate/core';
-declare let $: any;
-declare let mUtil: any;
 
 const log = Log.create('UserSearchComponent');
 log.color = '#15a850';
@@ -46,7 +44,7 @@ log.color = '#15a850';
   encapsulation: ViewEncapsulation.None
 })
 export class UserSearchComponent implements OnInit, OnDestroy {
-  @BlockUI('user-search') blockUI: NgBlockUI;
+  // @BlockUI('user-search') blockUI: NgBlockUI;
   public itemsPerRow: number;
   public rows: number[];
   public isInEdit: boolean;
@@ -143,14 +141,14 @@ export class UserSearchComponent implements OnInit, OnDestroy {
 
   onSearch() {
     this.isLoading = true;
-    this.blockUI.start('Assessing your profile...');
+    // this.blockUI.start('Assessing your profile...');
     const userSearchInput = this.userFormGroup.getRawValue();
     of('Fake collecting UI data')
       .pipe(delay(2000))
       .pipe(
         catchError(error => {
           this.isLoading = false;
-          this.blockUI.stop();
+          // this.blockUI.stop();
           this.showAlert('alertUserInput');
           this._alertService.error(error);
           return empty();
@@ -158,7 +156,7 @@ export class UserSearchComponent implements OnInit, OnDestroy {
       )
       .subscribe(() => {
         log.info('onSearch', userSearchInput);
-        this.blockUI.stop();
+        // this.blockUI.stop();
         this.isLoading = false;
         this.isInEdit = false;
         this.dialogRef.close({ action: 'search', data: userSearchInput });

@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>{{"USER.SEARCHING.INDEX" | translate}}
 </h1>
 <div mat-dialog-content>
-  <div class="portlet" [class.portlet-border-bold]="isInEdit" *blockUI="'user-search'">
+  <div class="portlet" [class.portlet-border-bold]="isInEdit" id="user-search">
     <form class="form for-fit for-label-align-right" [formGroup]="userFormGroup">
       <ng-template #alertUserInput></ng-template>
       <div *ngFor="let i of rows; let idx=index;" class="form-group row">

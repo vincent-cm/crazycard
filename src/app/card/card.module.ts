@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseRequestOptions, HttpModule } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-import { BlockUIModule } from 'ng-block-ui';
+// import { BlockUIModule } from 'ng-block-ui';
 import { CardRoutingModule } from './card-routing.routing';
 import { CardComponent, CardDetailComponent } from './card.component';
 import { AlertComponent } from './_directives/alert.component';
@@ -34,7 +34,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
     CardRoutingModule,
     SharedModule,
     NgxDatatableModule,
-    BlockUIModule
+    // BlockUIModule
   ],
   providers: [
     AlertService,

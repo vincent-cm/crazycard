@@ -63,24 +63,8 @@ declare let ENV: string;
 declare let HMR: boolean;
 declare let System: SystemJS;
 declare const FIREBASE_CONFIG: FirebaseConfig;
-declare let mApp: any;
-declare let mUtil: any;
-declare let swal: any;
 declare let _: any;
 declare let toastr;
-declare let App: any;
-declare let Layout: any;
-declare let Demo: any;
-declare let QuickSidebar: any;
-declare let particlesJS: any;
-declare let iCheck;
-declare let google: any;
-declare let Login;
-declare let tinymce: any;
-declare let WatchJS: any;
-declare let Dropbox: any;
-declare let OneDrive: any;
-declare let Tock: any;
 
 interface FirebaseConfig {
   apiKey: string;
@@ -181,15 +165,4 @@ interface Global extends GlobalEnvironment { }
 declare var module: NodeModule;
 interface NodeModule {
   id: string;
-}
-interface JQuery {
-  mMenu(options: any): JQuery;
-  animateClass(options: any): JQuery;
-  setActiveItem(item: any): JQuery;
-  getPageTitle(item: any): JQuery;
-  getBreadcrumbs(item: any): JQuery;
-  validate(options: any): JQuery;
-  valid(): JQuery;
-  resetForm(): JQuery;
-  markdown(): JQuery;
 }

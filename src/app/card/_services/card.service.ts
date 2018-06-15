@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class CardService {
-  constructor(protected http: Http) {}
+  constructor(protected http: Http) { }
 
   public searchCard(user: User): Observable<any> {
     if (user === null || user === undefined) {

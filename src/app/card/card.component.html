@@ -10,7 +10,7 @@
   <mat-card-content class="my-2">
     <ng-template #alertCardResult></ng-template>
 
-    <div class="py-4" *blockUI="'card_list'">
+    <div class="py-4" id="card_list">
       <ngx-datatable #table class='material' [columns]="cardColumns" [rows]='cardList' [columnMode]="'force'" [headerHeight]="50"
         [footerHeight]="50" [rowHeight]="400" [scrollbarH]="true" [trackByProp]="'updated'" [selected]="selectedCardList" [selectionType]="'checkbox'"
         (select)='onCardsSelected($event)' [limit]="10" [messages]="tableMessage" [selectionType]="'checkbox'" (activate)="onRowClick($event)">

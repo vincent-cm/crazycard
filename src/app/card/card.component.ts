@@ -12,7 +12,7 @@ import {
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Log } from 'ng2-logger';
 import { TableColumn } from '@swimlane/ngx-datatable';
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+// import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import {
   MatDialog,
   MatDialogRef,
@@ -36,7 +36,6 @@ import { AlertComponent } from './_directives';
 import { ComponentFactoryResolver } from '@angular/core';
 import { AlertService } from './_services';
 
-declare var $: any;
 const log = Log.create('card.component');
 log.color = '#a2007a';
 
@@ -47,7 +46,7 @@ log.color = '#a2007a';
 })
 export class CardComponent
   implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
-  @BlockUI('card_list') blockUI: NgBlockUI;
+  // @BlockUI('card_list') blockUI: NgBlockUI;
   @ViewChild('alertCardResult', { read: ViewContainerRef })
   alertCardResult: ViewContainerRef;
   public cardList: Card[] = [];
@@ -138,9 +137,9 @@ export class CardComponent
     });
   }
 
-  public ngOnDestroy() { }
+  public ngOnDestroy() {}
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {}
 
   public onShowUserPopup() {
     const dialogRef = this.matDialog
@@ -153,13 +152,12 @@ export class CardComponent
       .subscribe(result => {
         if (result && result.action === 'search') {
           log.info(JSON.stringify(result));
-          this.blockUI.start('Loading...');
-
+          // this.blockUI.start('Loading...');
           this.cardService
             .searchCard(result.data)
             .pipe(
               catchError(error => {
-                this.blockUI.stop();
+                // this.blockUI.stop();
                 this.showAlert('alertUserInput');
                 this._alertService.error(error);
                 return empty();
@@ -197,10 +195,10 @@ export class CardComponent
                 console.dir(this.cardColumns);
 
                 // check whether applicationId in the parameter
-                this.blockUI.stop();
+                // this.blockUI.stop();
               } else {
                 this.notice.warn(resData.message);
-                this.blockUI.stop();
+                // this.blockUI.stop();
               }
             });
         }
@@ -232,7 +230,7 @@ export class CardComponent
     window.location.href = 'https://github.com/vincent-cm';
   }
 
-  public ngAfterViewChecked() { }
+  public ngAfterViewChecked() {}
 
   showAlert(target) {
     this[target].clear();

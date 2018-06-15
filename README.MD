@@ -4,6 +4,7 @@ crazycard - Demo angular app for gettting a quote for your credit
 Building crazycard
 -----------------
 Install [Node.js](https://nodejs.org/en/) on your system. - `currently tested with v10.4.0`
+
 Clone this repository on your system
 ```
 $ git clone git@github.com:vincent-cm/crazycard.git
