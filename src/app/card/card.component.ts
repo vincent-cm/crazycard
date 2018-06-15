@@ -138,9 +138,9 @@ export class CardComponent
     });
   }
 
-  public ngOnDestroy() {}
+  public ngOnDestroy() { }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
 
   public onShowUserPopup() {
     const dialogRef = this.matDialog
@@ -235,7 +235,7 @@ export class CardComponent
     window.location.href = 'https://github.com/vincent-cm';
   }
 
-  public ngAfterViewChecked() {}
+  public ngAfterViewChecked() { }
 
   showAlert(target) {
     this[target].clear();
