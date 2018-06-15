@@ -102,8 +102,6 @@ export function mockBackEndFactory(
       liqCard[key] = cardConfig[2][key];
     }
   }
-  // fake token
-  const token: string = 'fake-jwt-token';
 
   // configure fake backend
   backend.connections.subscribe((connection: MockConnection) => {
@@ -209,7 +207,6 @@ export function mockBackEndFactory(
             totalCredit += +liqCard.credit;
           }
 
-          // if user details are valid return 200 OK with card details and fake jwt token
           connection.mockRespond(
             new Response(
               new ResponseOptions({
