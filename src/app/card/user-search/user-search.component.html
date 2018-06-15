@@ -2,7 +2,7 @@
 </h1>
 <div mat-dialog-content>
   <div class="portlet" [class.portlet-border-bold]="isInEdit" id="user-search">
-    <form class="form for-fit for-label-align-right" [formGroup]="userFormGroup">
+    <form class="form" [formGroup]="userFormGroup">
       <ng-template #alertUserInput></ng-template>
       <div *ngFor="let i of rows; let idx=index;" class="form-group row">
         <!-- Loop through the user attributes to keep it as scalable as possible -->
@@ -45,8 +45,15 @@
 <div mat-dialog-actions>
   <button [disabled]="userFormGroup.pristine || isLoading" (click)="onRevert()" mat-button>{{"BUTTON.REVERT" | translate}}</button>
   <button color="warn" [disabled]="userFormGroup.pristine || userFormGroup.status == 'INVALID' || isLoading" (click)="onSearch()"
-    mat-button>{{"BUTTON.SEARCH" | translate}}</button>
+    mat-button>
+    <ng-container *ngIf="isLoading; else elseButtonTemplate">
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </ng-container>
+    <ng-template #elseButtonTemplate>
+      {{"BUTTON.SEARCH" | translate}}
+    </ng-template>
+  </button>
   <span>or
-    <a color="accent" mat-button (click)="onDismiss()">{{"BUTTON.DISMISS" | translate}}</a>
+    <a color="accent" mat-button [class.disabled]="isLoading" (click)="onDismiss()">{{"BUTTON.DISMISS" | translate}}</a>
   </span>
 </div>

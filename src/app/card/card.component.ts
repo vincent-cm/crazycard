@@ -52,6 +52,7 @@ export class CardComponent
   public cardList: Card[] = [];
   public selectedCardList: Card[] = [];
   public cardColumns: TableColumn[] = [];
+  public isLoading: boolean;
   public checkboxColumn: TableColumn = {
     canAutoResize: false,
     checkboxable: true,
@@ -152,11 +153,13 @@ export class CardComponent
       .subscribe(result => {
         if (result && result.action === 'search') {
           log.info(JSON.stringify(result));
+          this.isLoading = true;
           // this.blockUI.start('Loading...');
           this.cardService
             .searchCard(result.data)
             .pipe(
               catchError(error => {
+                this.isLoading = false;
                 // this.blockUI.stop();
                 this.showAlert('alertUserInput');
                 this._alertService.error(error);
@@ -196,9 +199,11 @@ export class CardComponent
 
                 // check whether applicationId in the parameter
                 // this.blockUI.stop();
+                this.isLoading = false;
               } else {
                 this.notice.warn(resData.message);
                 // this.blockUI.stop();
+                this.isLoading = false;
               }
             });
         }

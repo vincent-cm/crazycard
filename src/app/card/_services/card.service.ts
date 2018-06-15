@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CardService {
   constructor(protected http: Http) { }
 
-  public searchCard(user: User): Observable<any> {
+  public searchCard(user: User): Observable<Result> {
     if (user === null || user === undefined) {
       throw new Error(
         'Required parameter user was null or undefined when calling search.'
