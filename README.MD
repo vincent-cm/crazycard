@@ -28,6 +28,9 @@ Now, build crazycard by using `npm`.
 $ npm run start:aot
 ```
 
+run as `https://0.0.0.0:3001/crazycard/`
+You may want to bypass the https warnings to continue
+
 ## Build tasks
 
 `npm run build:aot`
